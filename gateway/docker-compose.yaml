@@ -1,18 +1,18 @@
 version: '3.5'
 
 services:
-  postgres:
-    container_name: postgres
+  postgres-gateway:
+    container_name: postgres-gateway
     image: postgres
     environment:
       POSTGRES_DB: federations
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456789
-      PGDATA: /data/postgres
+      PGDATA: /data/postgres-gateway
     volumes:
-      - postgres:/data/postgres
+      - postgres-gateway:/data/postgres-gateway
     ports:
       - "5432:5432"
     restart: unless-stopped
 volumes:
-    postgres:
+    postgres-gateway:
